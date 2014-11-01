@@ -24,4 +24,8 @@
 # 13 16 225 14 120 10
 
 File.open(ARGV.shift, 'r').each_line do |line|
+  split_string = line.strip.split(/\s+\|\s+/)
+  digits = split_string.map { |x| x.split(/\s+/).map(&:to_i) }
+  puts  digits.first.zip(digits.last).map { |a, b| a * b }.join(' ')
+end
 
